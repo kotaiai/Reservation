@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1633857306 source:c:\users\ailar\onedrive\mga dokumento\2nd year 1st sem\cpp\queue first try\main.cpp
+1633858442 source:c:\users\ailar\onedrive\mga dokumento\2nd year 1st sem\cpp\queue first try\main.cpp
 	<iostream>
 	<unistd.h>
+	<iomanip>
 	"queue.h"
 
 1633857416 c:\users\ailar\onedrive\mga dokumento\2nd year 1st sem\cpp\queue first try\include\queue.h

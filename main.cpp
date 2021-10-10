@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unistd.h>
+#include <iomanip>
 #include "queue.h"
 
 using namespace std;
@@ -12,15 +13,33 @@ int main()
     int y;
     if (!s)
     {
-        cout<<"W E L C O M E   T O   R E S E R V A T I O N   P A G E"<<endl<<endl<<endl;
+        cout<<"_______________________________________________________________________________________________________________________"<<endl;
+        cout<<setw(86)<<"W E L C O M E   T O   R E S E R V A T I O N   P A G E"<<endl;
+        cout<<"_______________________________________________________________________________________________________________________"<<endl<<endl<<endl;
         cout<<"List how many people you want to reserve in the program: ";
         cin>>s;
-        cout<<"Loading .";
-        sleep(1);
-        cout<<" .";
-        sleep(1);
-        cout<<" .";
-        sleep(1);
+            if(s!=0){
+                cout<<"Loading .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+            }
+            else{
+                system("cls");
+                cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                cout<<setw(63)<<"INVALID!\n";
+                cout<<"Returning to main menu .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+                system("cls");
+                main();
+
+            }
     }
 
     iqueue<string> name(s);
@@ -33,7 +52,9 @@ int main()
     do
     {   choice = 0;
         system("cls");
-        cout<<"W E L C O M E   T O   R E S E R V A T I O N   P A G E"<<endl<<endl<<endl;
+        cout<<"_______________________________________________________________________________________________________________________"<<endl;
+        cout<<setw(86)<<"W E L C O M E   T O   R E S E R V A T I O N   P A G E"<<endl;
+        cout<<"_______________________________________________________________________________________________________________________"<<endl<<endl<<endl;
         cout<<"[1] Add reservation"<<endl;
         cout<<"[2] Print transcript"<<endl<<endl<<endl;
         cout<<"Input your choice here: ";
@@ -50,7 +71,8 @@ int main()
                 if(name.isfull())
                 {
                     system("cls");
-                    cout<<"NO MORE SLOTS!\n";
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                    cout<<setw(66)<<"NO MORE SLOTS!\n";
                     cout<<"Returning to main menu .";
                     sleep(1);
                     cout<<" .";
@@ -61,7 +83,9 @@ int main()
                 else
                 {
                     system("cls");
-                    cout<<"R E S E R V I N G"<<endl<<endl;
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                    cout<<setw(66)<<"R E S E R V I N G"<<endl;
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl<<endl;
                     cout<<"Input full name here: ";
                     cin.ignore();
                     getline(cin, n);
@@ -85,7 +109,8 @@ int main()
                 if (name.isempty())
                 {
                     system("cls");
-                    cout<<"EMPTY!\n";
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                    cout<<setw(65)<<"EMPTY!\n";
                     cout<<"Returning to main menu .";
                     sleep(1);
                     cout<<" .";
@@ -96,7 +121,9 @@ int main()
                 else
                 {
                     system("cls");
-                    cout<<"T R A N S C R I P T"<<endl<<endl;
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                    cout<<setw(68)<<"T R A N S C R I P T"<<endl;
+                    cout<<"_______________________________________________________________________________________________________________________"<<endl<<endl;
                     for(int i = 0; i<s; i++)
                     {
                         cout<<"Name: "<<name.dequeue(n)<<endl;
@@ -111,6 +138,18 @@ int main()
                     sleep(2);
                 }
                 break;
+            default:
+                system("cls");
+                cout<<"_______________________________________________________________________________________________________________________"<<endl;
+                cout<<setw(63)<<"INVALID!\n";
+                cout<<"Returning to main menu .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+                cout<<" .";
+                sleep(1);
+                break;
+
         }
 
     }while(choice>0);
